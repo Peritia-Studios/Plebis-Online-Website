@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { videoTime } from '$lib';
 	import { m } from '$lib/paraglide/messages';
 
 	import PictureCarousel from './PictureCarousel.svelte';
@@ -31,7 +30,6 @@
 <!-- Video banner -->
 <div class={loaded && !loading ? '' : 'placeholder animate-pulse rounded-none'}>
 	<video
-		bind:currentTime={$videoTime}
 		class="aspect-21/9 w-full object-cover transition-opacity duration-300 {loaded
 			? 'opacity-100'
 			: 'opacity-0'}"
@@ -43,9 +41,9 @@
 		}}
 		playsinline
 		disablepictureinpicture
-		autoplay
-		loop
 		muted
+		loop
+		autoplay
 	>
 		<track kind="captions" />
 		<source src="/banner/banner.mp4" type="video/mp4" />

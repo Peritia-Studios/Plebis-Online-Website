@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon';
 import Discord from '$lib/components/icons/Discord.svelte';
 import Instagram from '$lib/components/icons/Instagram.svelte';
-import { writable } from 'svelte/store';
 
 export interface Update {
 	title: string;
@@ -18,8 +17,6 @@ export let updates: Update[] = [
 		description: 'Playtester only builds! No major public releases until this point.'
 	}
 ];
-
-export const videoTime = writable(0);
 
 export const links = [
 	{
