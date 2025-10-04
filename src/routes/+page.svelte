@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { videoTime } from '$lib';
-	import * as m from '$lib/paraglide/messages';
+	import { m } from '$lib/paraglide/messages';
 
 	import PictureCarousel from './PictureCarousel.svelte';
 

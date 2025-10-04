@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import PlebisOnline from '$lib/components/icons/PlebisOnline.svelte';
-	import { i18n } from '$lib/i18n';
-	import * as m from '$lib/paraglide/messages';
+	import { localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
+	import { m } from '$lib/paraglide/messages';
 	import { Modal } from '@skeletonlabs/skeleton-svelte';
 	import { Menu, X } from 'lucide-svelte';
 
@@ -36,23 +36,27 @@
 			</header>
 			<div class="flex flex-col gap-2">
 				<a
-					href="/"
-					class="hover:underline {i18n.route(page.url.pathname) === '/' ||
-					i18n.route(page.url.pathname) === ''
+					href={localizeHref('/')}
+					class="hover:underline {deLocalizeHref(page.url.pathname) === '/' ||
+					deLocalizeHref(page.url.pathname) === ''
 						? ''
 						: 'opacity-60'}"
 					onclick={drawerClose}
 					title={m.nav_home()}>{m.nav_home()}</a
 				>
 				<a
-					href="/updates"
-					class="hover:underline {i18n.route(page.url.pathname) === '/updates' ? '' : 'opacity-60'}"
+					href={localizeHref('/updates')}
+					class="hover:underline {deLocalizeHref(page.url.pathname) === '/updates'
+						? ''
+						: 'opacity-60'}"
 					onclick={drawerClose}
 					title={m.nav_updates()}>{m.nav_updates()}</a
 				>
 				<a
-					href="/about"
-					class="hover:underline {i18n.route(page.url.pathname) === '/about' ? '' : 'opacity-60'}"
+					href={localizeHref('/about')}
+					class="hover:underline {deLocalizeHref(page.url.pathname) === '/about'
+						? ''
+						: 'opacity-60'}"
 					onclick={drawerClose}
 					title={m.nav_about()}>{m.nav_about()}</a
 				>
