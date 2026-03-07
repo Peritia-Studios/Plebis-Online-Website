@@ -62,6 +62,14 @@
 
 	<h2 class="h2 text-center">{@html m.short_description()}</h2>
 
+	<div class="overflow-hidden rounded-lg w-[600px] h-[190px] mx-auto my-4">
+		<iframe
+			title="Plebis Online on Steam"
+			src="https://store.steampowered.com/widget/1230410"
+			style="border: none; width: 600px; height: 190px;"
+		></iframe>
+	</div>
+
 	<hr class="border-t-2 border-gray-300 w-4/5 mx-auto mt-8 mb-16">
 
 	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
