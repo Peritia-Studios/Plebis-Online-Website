@@ -6,25 +6,32 @@
 	let loaded = $state(false);
 	let loading = $state(false);
 
-	const pictures = [
+	const pictures1 = [
 		'lounge.png',
-		'shooting_range.png',
-		'bunker_1.png',
 		'bunker_2.png',
+		'bunker_5.png'
+	];
+
+	const pictures2 = [
+		'shooting_range.png',
 		'bunker_3.png',
+		'subway_1.png'
+	];
+
+	const pictures3 = [
+		'bunker_1.png',
 		'bunker_4.png',
-		'bunker_5.png',
-		'subway_1.png',
 		'subway_2.png'
 	];
+	
 </script>
 
 <svelte:head>
 	<title>Plebis Online</title>
-	<meta name="description" content={m.example()} />
+	<meta name="description" content={m.short_description()} />
 	<!-- Open Graph -->
 	<meta property="og:title" content="Plebis Online" />
-	<meta property="og:description" content={m.example()} />
+	<meta property="og:description" content={m.short_description()} />
 </svelte:head>
 
 <!-- Video banner -->
@@ -52,27 +59,63 @@
 </div>
 
 <div class="content">
-	<h2 class="h2">
-		<span class="text-glowing">{m.example()}</span>
-	</h2>
-	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-		<div class="space-y-4">
-			<p>Hier sind Bilder und viel Text!</p>
 
-			<p>
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-				invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-				et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-				Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-				diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-				voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-				gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-				amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-				dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-				et ea rebum.
-			</p>
+	<h2 class="h2 text-center">{@html m.short_description()}</h2>
+
+	<hr class="border-t-2 border-gray-300 w-4/5 mx-auto mt-8 mb-16">
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.general_title()}</span></h2>
+			<p>{@html m.general_text()}</p>
 		</div>
 
-		<PictureCarousel {pictures} />
+		<PictureCarousel pictures={pictures1} />
 	</div>
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<PictureCarousel pictures={pictures2} />
+
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.gadgets_title()}</span></h2>
+			<p>{@html m.gadgets_text()}</p>
+		</div>
+	</div>
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.settings_title()}</span></h2>
+			<p>{@html m.settings_text()}</p>
+		</div>
+
+		<PictureCarousel pictures={pictures3} />
+	</div>
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<PictureCarousel pictures={pictures1} />
+
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.arenas_title()}</span></h2>
+			<p>{@html m.arenas_text()}</p>
+		</div>
+	</div>
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.lore_title()}</span></h2>
+			<p>{@html m.lore_text()}</p>
+		</div>
+
+		<PictureCarousel pictures={pictures2} />
+	</div>
+
+	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
+		<PictureCarousel pictures={pictures3} />
+
+		<div class="space-y-4">
+			<h2 class="h2"><span class="text-glowing">{m.friendship_title()}</span></h2>
+			<p>{@html m.friendship_text()}</p>
+		</div>
+	</div>
+	
 </div>
