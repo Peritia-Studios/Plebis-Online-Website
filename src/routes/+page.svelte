@@ -6,24 +6,11 @@
 	let loaded = $state(false);
 	let loading = $state(false);
 
-	const pictures1 = [
-		'lounge.png',
-		'bunker_2.png',
-		'bunker_5.png'
-	];
+	const pictures1 = ['lounge.png', 'bunker_2.png', 'bunker_5.png'];
 
-	const pictures2 = [
-		'shooting_range.png',
-		'bunker_3.png',
-		'subway_1.png'
-	];
+	const pictures2 = ['shooting_range.png', 'bunker_3.png', 'subway_1.png'];
 
-	const pictures3 = [
-		'bunker_1.png',
-		'bunker_4.png',
-		'subway_2.png'
-	];
-	
+	const pictures3 = ['bunker_1.png', 'bunker_4.png', 'subway_2.png'];
 </script>
 
 <svelte:head>
@@ -53,16 +40,20 @@
 		autoplay
 	>
 		<track kind="captions" />
-		<source src="/banner/1920w.mp4" type="video/mp4" />
+		<source src="/banner/1920w.mp4" type="video/mp4" media="(min-width: 1600px)" />
+		<source src="/banner/1600w.mp4" type="video/mp4" media="(min-width: 1280px)" />
+		<source src="/banner/1280w.mp4" type="video/mp4" media="(min-width: 1024px)" />
+		<source src="/banner/1024w.mp4" type="video/mp4" media="(min-width: 768px)" />
+		<source src="/banner/768w.mp4" type="video/mp4" media="(min-width: 480px)" />
+		<source src="/banner/480w.mp4" type="video/mp4" media="(max-width: 479px)" />
 		Your browser does not support the video tag.
 	</video>
 </div>
 
 <div class="content">
-
 	<h2 class="h2 text-center">{@html m.short_description()}</h2>
 
-	<div class="overflow-hidden rounded-lg w-[600px] h-[190px] mx-auto my-4">
+	<div class="mx-auto my-4 h-[190px] w-[600px] overflow-hidden rounded-lg">
 		<iframe
 			title="Plebis Online on Steam"
 			src="https://store.steampowered.com/widget/1230410"
@@ -70,7 +61,7 @@
 		></iframe>
 	</div>
 
-	<hr class="border-t-2 border-gray-300 w-4/5 mx-auto mt-8 mb-16">
+	<hr class="mx-auto mt-8 mb-16 w-4/5 border-t-2 border-gray-300" />
 
 	<div class="grid grid-cols-1 gap-24 lg:grid-cols-2">
 		<div class="space-y-4">
@@ -125,5 +116,4 @@
 			<p>{@html m.friendship_text()}</p>
 		</div>
 	</div>
-	
 </div>

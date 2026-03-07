@@ -4,7 +4,9 @@
 	import { m } from '$lib/paraglide/messages';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import { ChevronDownIcon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 
 	let value = $state(['']);
 	onMount(() => {
@@ -29,6 +31,37 @@
 	>
 		<Accordion {value} onValueChange={(e) => (value = e.value)} collapsible>
 			{#each updates as { title, date, version, description }, i (version)}
+				{#if i !== 0}
+					<hr class="hr" />
+				{/if}
+				<Accordion.Item value={version}>
+					<h3>
+						<Accordion.ItemTrigger class="flex items-center justify-between gap-2 font-bold">
+							<div class="flex w-full items-center justify-between">
+								<p class="text-glowing">{title}</p>
+								<p>{date.toLocaleString(undefined, { locale: getLocale() })}</p>
+							</div>
+							<Accordion.ItemIndicator class="group">
+								<ChevronDownIcon class="h-5 w-5 transition group-data-[state=open]:rotate-180" />
+							</Accordion.ItemIndicator>
+						</Accordion.ItemTrigger>
+					</h3>
+					<Accordion.ItemContent>
+						{#snippet element(attributes)}
+							{#if !attributes.hidden}
+								<div {...attributes} transition:slide={{ duration: 150 }}>
+									<p>
+										{description}
+									</p>
+								</div>
+							{/if}
+						{/snippet}
+					</Accordion.ItemContent>
+				</Accordion.Item>
+			{/each}
+		</Accordion>
+		<!-- <Accordion {value} onValueChange={(e) => (value = e.value)} collapsible>
+			{#each updates as { title, date, version, description }, i (version)}
 				<div id={version}>
 					<Accordion.Item value={version}>
 						{#snippet control()}
@@ -44,6 +77,6 @@
 					{/if}
 				</div>
 			{/each}
-		</Accordion>
+		</Accordion> -->
 	</div>
 </div>

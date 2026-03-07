@@ -3,8 +3,9 @@
 	import PlebisOnline from '$lib/components/icons/PlebisOnline.svelte';
 	import { localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
 	import { m } from '$lib/paraglide/messages';
-	import { Modal } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import { Menu, X } from 'lucide-svelte';
+	import { flyside, opacity } from '$lib/animations';
 
 	let drawerState = $state(false);
 
@@ -14,53 +15,52 @@
 </script>
 
 <div class="md:hidden">
-	<Modal
-		open={drawerState}
-		onOpenChange={(e) => (drawerState = e.open)}
-		triggerBase="btn-icon"
-		contentBase="bg-surface-100-900 p-4 space-y-4 shadow-xl w-[320px] h-screen"
-		positionerJustify="justify-start"
-		positionerAlign=""
-		positionerPadding=""
-		transitionsPositionerIn={{ x: -320, duration: 200 }}
-		transitionsPositionerOut={{ x: -320, duration: 200 }}
-	>
-		{#snippet trigger()}<Menu />{/snippet}
-		{#snippet content()}
-			<header class="flex items-center justify-between">
-				<div class="itsems-center flex justify-start space-x-3">
-					<PlebisOnline size={42} class="icon-glowing" />
-					<h2 class="h2"><span class="text-glowing">Plebis Online</span></h2>
-				</div>
-				<button class="btn-icon" onclick={drawerClose}><X /></button>
-			</header>
-			<div class="flex flex-col gap-2">
-				<a
-					href={localizeHref('/')}
-					class="hover:underline {deLocalizeHref(page.url.pathname) === '/' ||
-					deLocalizeHref(page.url.pathname) === ''
-						? ''
-						: 'opacity-60'}"
-					onclick={drawerClose}
-					title={m.nav_home()}>{m.nav_home()}</a
+	<Dialog open={drawerState} onOpenChange={(e) => (drawerState = e.open)}>
+		<Dialog.Trigger class="btn-icon"><Menu /></Dialog.Trigger>
+		<Portal>
+			<Dialog.Backdrop class="bg-surface-50-950/50 fixed inset-0 z-50  {opacity}" />
+			<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
+				<Dialog.Content
+					class="card bg-surface-100-900 h-screen w-sm space-y-4 p-4 shadow-xl duration-200 {flyside}"
 				>
-				<a
-					href={localizeHref('/updates')}
-					class="hover:underline {deLocalizeHref(page.url.pathname) === '/updates'
-						? ''
-						: 'opacity-60'}"
-					onclick={drawerClose}
-					title={m.nav_updates()}>{m.nav_updates()}</a
-				>
-				<a
-					href={localizeHref('/about')}
-					class="hover:underline {deLocalizeHref(page.url.pathname) === '/about'
-						? ''
-						: 'opacity-60'}"
-					onclick={drawerClose}
-					title={m.nav_about()}>{m.nav_about()}</a
-				>
-			</div>
-		{/snippet}
-	</Modal>
+					<header class="flex items-center justify-between">
+						<Dialog.Title class="itsems-center flex justify-start space-x-3">
+							<PlebisOnline size={42} class="icon-glowing" />
+							<h2 class="h2"><span class="text-glowing">Plebis Online</span></h2>
+						</Dialog.Title>
+						<Dialog.CloseTrigger class="btn-icon preset-tonal text-surface-950-50">
+							<X />
+						</Dialog.CloseTrigger>
+					</header>
+					<div class="flex flex-col gap-2">
+						<a
+							href={localizeHref('/')}
+							class="hover:underline {deLocalizeHref(page.url.pathname) === '/' ||
+							deLocalizeHref(page.url.pathname) === ''
+								? ''
+								: 'opacity-60'}"
+							onclick={drawerClose}
+							title={m.nav_home()}>{m.nav_home()}</a
+						>
+						<a
+							href={localizeHref('/updates')}
+							class="hover:underline {deLocalizeHref(page.url.pathname) === '/updates'
+								? ''
+								: 'opacity-60'}"
+							onclick={drawerClose}
+							title={m.nav_updates()}>{m.nav_updates()}</a
+						>
+						<a
+							href={localizeHref('/about')}
+							class="hover:underline {deLocalizeHref(page.url.pathname) === '/about'
+								? ''
+								: 'opacity-60'}"
+							onclick={drawerClose}
+							title={m.nav_about()}>{m.nav_about()}</a
+						>
+					</div>
+				</Dialog.Content>
+			</Dialog.Positioner>
+		</Portal>
+	</Dialog>
 </div>
