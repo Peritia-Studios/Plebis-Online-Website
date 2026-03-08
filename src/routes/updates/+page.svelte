@@ -27,7 +27,7 @@
 <div class="content">
 	<p>{m.updates_description()}!</p>
 	<div
-		class="card bg-surface-50-950 border-surface-200-800 flex items-center justify-center border-[1px] p-4"
+		class="card bg-surface-50-950 border-surface-200-800 flex items-center justify-center border p-4"
 	>
 		<Accordion {value} onValueChange={(e) => (value = e.value)} collapsible>
 			{#each updates as { title, date, version, description }, i (version)}

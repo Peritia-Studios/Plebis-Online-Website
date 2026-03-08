@@ -1,72 +1,53 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { Carousel } from '@skeletonlabs/skeleton-svelte';
+	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
 	interface Props {
 		pictures: string[];
 	}
 
 	let { pictures }: Props = $props();
-
-	let elemCarousel: HTMLDivElement;
-	let autoInterval: NodeJS.Timeout | undefined = $state();
-	let currentPicture = $state(0);
-
-	onMount(() => {
-		currentPicture = getCurrentPicture();
-		newAutoScroll();
-	});
-
-	function getCurrentPicture(): number {
-		let scrollLeft = elemCarousel?.scrollLeft || 0;
-		let clientWidth = elemCarousel?.clientWidth || 1;
-		return Math.round(scrollLeft / clientWidth);
-	}
-
-	function carouselThumbnail(index: number) {
-		elemCarousel?.scroll(elemCarousel.clientWidth * index, 0);
-	}
-
-	function newAutoScroll() {
-		autoInterval = setTimeout(() => {
-			let newI = currentPicture + 1;
-			if (newI < pictures.length) {
-				carouselThumbnail(newI);
-			} else {
-				carouselThumbnail(0);
-			}
-		}, 5000);
-	}
 </script>
 
-<div class="space-y-4">
-	<div
-		bind:this={elemCarousel}
-		onscroll={() => {
-			currentPicture = getCurrentPicture();
-			clearTimeout(autoInterval);
-			newAutoScroll();
-		}}
-		class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
-	>
-		{#each pictures as picture}
-			<img
-				class="rounded-container-token w-fit snap-center"
-				src="gameplay/{picture}"
-				alt={picture}
-				loading="lazy"
-			/>
-		{/each}
-	</div>
-
-	<div class="flex space-x-2">
-		{#each pictures as picture, i}
-			<button
-				type="button"
-				class={i == currentPicture ? 'outline-primary-500 outline outline-offset-2' : ''}
-				onclick={() => carouselThumbnail(i)}
+<Carousel
+	class="my-auto"
+	slideCount={pictures.length}
+	slidesPerPage={1}
+	spacing="16px"
+	padding="24px"
+	autoSize
+>
+	<div class="relative">
+		<Carousel.Control>
+			<Carousel.PrevTrigger
+				class="btn-icon preset-filled absolute top-[50%] left-0 translate-y-[-50%] rounded-full"
 			>
-				<img src="gameplay/{picture}" alt={picture} loading="lazy" />
-			</button>
-		{/each}
+				<ChevronLeft />
+			</Carousel.PrevTrigger>
+			<Carousel.NextTrigger
+				class="btn-icon preset-filled absolute top-[50%] right-0 translate-y-[-50%] rounded-full"
+			>
+				<ChevronRight />
+			</Carousel.NextTrigger>
+		</Carousel.Control>
+		<Carousel.ItemGroup>
+			{#each pictures as picture, i}
+				<Carousel.Item
+					index={i}
+					class="card preset-tonal flex aspect-video h-fit items-center justify-center overflow-hidden"
+				>
+					<img src="gameplay/{picture}" alt={picture} loading="lazy" />
+				</Carousel.Item>
+			{/each}
+		</Carousel.ItemGroup>
 	</div>
-</div>
+	<Carousel.IndicatorGroup>
+		<Carousel.Context>
+			{#snippet children(carousel)}
+				{#each carousel().pageSnapPoints as _, index}
+					<Carousel.Indicator {index} />
+				{/each}
+			{/snippet}
+		</Carousel.Context>
+	</Carousel.IndicatorGroup>
+</Carousel>

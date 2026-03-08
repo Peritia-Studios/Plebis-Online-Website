@@ -2,6 +2,9 @@ import { DateTime } from 'luxon';
 import Discord from '$lib/components/icons/Discord.svelte';
 import Instagram from '$lib/components/icons/Instagram.svelte';
 
+// The steam game id, currently set to the id from "chaos"
+export const steam_game_id = '1230410';
+
 export interface Update {
 	title: string;
 	date: DateTime;
@@ -9,7 +12,7 @@ export interface Update {
 	description: string;
 }
 
-export let updates: Update[] = [
+export const updates: Update[] = [
 	{
 		title: 'Alphas',
 		date: DateTime.fromISO('2024-02-10'),

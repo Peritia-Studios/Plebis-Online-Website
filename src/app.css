@@ -53,9 +53,20 @@
 
 	p,
 	a,
+	button,
 	li {
 		font-size: x-large;
 		line-height: 1.1;
+	}
+
+	.btn {
+		font-size: x-large !important;
+		line-height: 1.5 !important;
+	}
+
+	.btn-lg {
+		font-size: xx-large !important;
+		line-height: 1.1 !important;
 	}
 
 	.anchor {
@@ -71,14 +82,13 @@
 
 	.h3 {
 		font-family: var(--main-font) !important;
-		text-decoration-line: underline;
 		font-size: x-large;
 		font-weight: normal !important;
 	}
 }
 
 @utility content {
-	@apply container mx-auto space-y-4 px-4 py-5 md:px-10;
+	@apply mx-auto max-w-5xl space-y-4 px-4 py-5 md:px-10;
 }
 
 @utility text-glowing {
