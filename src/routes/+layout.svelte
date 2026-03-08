@@ -14,7 +14,7 @@
 	let real_route = $derived(deLocalizeHref(page.url.pathname));
 </script>
 
-<div class="min-h-screen">
+<div class="flex min-h-screen flex-col">
 	<header
 		class="border-surface-500/20 bg-surface-50/90 dark:bg-surface-950/90 sticky top-0 z-50 flex h-17.5 w-full items-center border-b backdrop-blur-sm"
 	>
@@ -28,7 +28,7 @@
 				>
 					<PlebisOnline
 						size={42}
-						class={real_route === '/' || real_route === '' ? 'icon-glowing' : 'opacity-80'}
+						class={real_route === '/' || real_route === '' ? 'logo-glowing' : 'opacity-100'}
 					/>
 				</a>
 				<a
@@ -81,7 +81,27 @@
 		</div>
 	</header>
 
-	<div class="w-full">
+	<div class="w-full flex-1">
 		{@render children?.()}
 	</div>
+
+	<footer
+		class="border-surface-500/20 bg-surface-50/90 dark:bg-surface-950/90 flex w-full flex-col items-center justify-between gap-4 border-t px-4 py-6 md:flex-row md:px-10"
+	>
+		<!-- Left: Privacy Policy -->
+		<div class="text-sm opacity-70">
+			<a href={localizeHref('/privacy-policy')} class="hover:underline">
+				{m.privacy_policy ? m.privacy_policy() : 'Privacy Policy'}
+			</a>
+		</div>
+
+		<!-- Right: Social Links -->
+		<div class="flex items-center gap-4">
+			{#each links as { name, icon: Icon, url }}
+				<a class="btn-icon" href={url} target="_blank" title={name}>
+					<Icon size="20" />
+				</a>
+			{/each}
+		</div>
+	</footer>
 </div>

@@ -1,9 +1,10 @@
 import { DateTime } from 'luxon';
 import Discord from '$lib/components/icons/Discord.svelte';
 import Instagram from '$lib/components/icons/Instagram.svelte';
+import YouTube from '$lib/components/icons/YouTube.svelte';
 
-// The steam game id, currently set to the id from "chaos"
-export const steam_game_id = '1230410';
+export const steam_game_id = '3619920';
+export const youtube_trailer_ID = false ? 'WtD2iNP__3k' : 'qx8hrhBZJ98';
 
 export interface Update {
 	title: string;
@@ -31,6 +32,11 @@ export const links = [
 		name: 'Instagram',
 		icon: Instagram,
 		url: 'https://www.instagram.com/plebis_online/'
+	},
+	{
+		name: 'YouTube',
+		icon: YouTube,
+		url: 'https://www.youtube.com/channel/UCCzfsSfb46FMIUQN-8TWETA'
 	}
 	// Hidden due to missing url
 	// {

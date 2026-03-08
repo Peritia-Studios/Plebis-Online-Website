@@ -85,6 +85,13 @@
 		font-size: x-large;
 		font-weight: normal !important;
 	}
+
+	.h4 {
+		font-family: var(--main-font) !important;
+		font-size: large;
+		font-weight: normal !important;
+	}
+	
 }
 
 @utility content {
@@ -92,10 +99,40 @@
 }
 
 @utility text-glowing {
-	text-shadow: 0px 0px 8px #d25401;
-	@apply bg-linear-to-br from-[#ccfa01] from-35% to-[#c91500] to-95% box-decoration-clone bg-clip-text text-transparent!;
+	text-shadow: 0px 0px 12px #ff6600;
+	@apply bg-linear-to-br from-[#ccfa01] from-35% to-[#ff1900] to-95% box-decoration-clone bg-clip-text text-transparent!;
 }
 
-@utility icon-glowing {
-	@apply drop-shadow-[0px_0px_8px_#d25401];
+@utility logo-glowing {
+	@apply drop-shadow-[0px_0px_12px_#ff6600];
+}
+
+.clip-octagon {
+  clip-path: polygon(
+	30% 0%, 70% 0%,
+	100% 30%, 100% 70%,
+	70% 100%, 30% 100%,
+	0% 70%, 0% 30%
+  );
+}
+
+.clip-octagon-relative {
+	aspect-ratio: 4;
+	clip-path: polygon(
+		7.5% 0%, 92.5% 0%,
+		100% 30%, 100% 70%,
+		92.5% 100%, 7.5% 100%,
+		0% 70%, 0% 30%
+  	);
+}
+
+.carousel-indicator {
+	background-color: white;
+  	transition: all 0.2s;
+}
+
+.carousel-indicator[data-current] {
+	background-color: #ff6600;
+	transform: scale(1.15) rotate(22.5deg);
+	transition: all 0.2s;
 }
