@@ -1,5 +1,5 @@
 <script>
-	import { ArrowLeft, Languages } from 'lucide-svelte';
+	import { Languages } from 'lucide-svelte';
 </script>
 
 <svelte:head>
@@ -17,14 +17,17 @@
 </svelte:head>
 
 <div class="content">
-
 	<div class="mx-auto flex max-w-2xl space-y-6 pt-3 pb-0">
-		<a data-sveltekit-replacestate href="/privacy-policy" class="btn preset-tonal">
+		<a
+			data-sveltekit-replacestate
+			href="/privacy-policy"
+			class="btn preset-tonal clip-octagon-relative text-surface-950-50 h-12 gap-3 rounded-none"
+		>
 			<Languages size={18} />
-			<span>English Version (Privacy Policy)</span>
+			<span>English Version</span>
 		</a>
 	</div>
-    
+
 	<div class="mx-auto flex max-w-2xl flex-col space-y-6 pt-0 pb-4">
 		<div class="space-y-2">
 			<h3 class="h3">Datenschutzerklärung</h3>
@@ -33,9 +36,8 @@
 				Diese Datenschutzerklärung gilt für alle öffentlich zugänglichen Websites unter <strong
 					>plebis.online</strong
 				>
-				Sie gilt <strong>nicht</strong> für Inhalte
-				oder Datenverarbeitungen auf externen Websites Dritter (z.&nbsp;B. GitHub-Repositories oder Social-Media-Profile),
-				auf die diese Seite lediglich verlinkt.
+				Sie gilt <strong>nicht</strong> für Inhalte oder Datenverarbeitungen auf externen Websites Dritter
+				(z.&nbsp;B. GitHub-Repositories oder Social-Media-Profile), auf die diese Seite lediglich verlinkt.
 			</p>
 		</div>
 
@@ -70,8 +72,8 @@
 				>. Beim Aufruf der Seiten verarbeitet GitHub technisch erforderliche Daten wie insbesondere
 				Ihre
 				<strong>IP-Adresse</strong>, um die Auslieferung der Inhalte und den sicheren Betrieb zu
-				gewährleisten. Auf diese Verarbeitung haben wir keinen Einfluss. Weitere Informationen finden
-				Sie in der
+				gewährleisten. Auf diese Verarbeitung haben wir keinen Einfluss. Weitere Informationen
+				finden Sie in der
 				<a
 					href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
 					class="anchor"
@@ -83,23 +85,4 @@
 
 		<p><small>Zuletzt aktualisiert: March 8, 2026</small></p>
 	</div>
-
-	<!-- Back button -->
-	<!-- <div >
-		<button
-			onclick={() => {
-				if (window?.history.length > 1) {
-					window?.history.back();
-				} else {
-					window.close();
-				}
-			}}
-			title="Return"
-			class="btn-icon preset-tonal"
-		>
-			<ArrowLeft />
-		</button>
-	</div> -->
-
-	<!-- Language Change -->
 </div>

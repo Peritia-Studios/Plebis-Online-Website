@@ -10,7 +10,7 @@
 </script>
 
 <Carousel
-	class="my-auto order-2 sm:order-1"
+	class="order-2 my-auto sm:order-1"
 	slideCount={pictures.length}
 	slidesPerPage={1}
 	spacing="16px"
@@ -20,12 +20,12 @@
 	<div class="relative">
 		<Carousel.Control>
 			<Carousel.PrevTrigger
-				class="btn-icon preset-filled absolute top-[50%] left-0 translate-y-[-50%] clip-octagon"
+				class="btn-icon preset-filled clip-octagon absolute top-[50%] left-0 translate-y-[-50%]"
 			>
 				<ChevronLeft />
 			</Carousel.PrevTrigger>
 			<Carousel.NextTrigger
-				class="btn-icon preset-filled absolute top-[50%] right-0 translate-y-[-50%] clip-octagon"
+				class="btn-icon preset-filled clip-octagon absolute top-[50%] right-0 translate-y-[-50%]"
 			>
 				<ChevronRight />
 			</Carousel.NextTrigger>
@@ -46,10 +46,8 @@
 			{#snippet children(carousel)}
 				{#each carousel().pageSnapPoints as _, i}
 					<Carousel.Indicator
-						
 						index={i}
-						class="carousel-indicator rounded-none border-0 clip-octagon"
-						
+						class="carousel-indicator clip-octagon rounded-none border-0"
 					/>
 				{/each}
 			{/snippet}

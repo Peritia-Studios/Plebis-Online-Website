@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
+	import { onNavigate } from '$app/navigation';
 	import { getLocale, localizeHref, deLocalizeHref, setLocale } from '$lib/paraglide/runtime.js';
 	import { m } from '$lib/paraglide/messages.js';
 	import MobileDrawer from './MobileDrawer.svelte';
@@ -12,6 +13,30 @@
 	let { children } = $props();
 
 	let real_route = $derived(deLocalizeHref(page.url.pathname));
+
+	// View transition
+	let currentTransition: ViewTransition | null = $state(null);
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			if (currentTransition && currentTransition.skipTransition) {
+				currentTransition.skipTransition();
+			}
+
+			currentTransition = document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+
+			currentTransition.ready.catch(() => {});
+
+			currentTransition.finished.finally(() => {
+				currentTransition = null;
+			});
+		});
+	});
 </script>
 
 <div class="flex min-h-screen flex-col">
@@ -96,7 +121,7 @@
 		</div>
 
 		<!-- Right: Social Links -->
-		<div class="flex items-center gap-4">
+		<div class="flex items-center">
 			{#each links as { name, icon: Icon, url }}
 				<a class="btn-icon" href={url} target="_blank" title={name}>
 					<Icon size="20" />

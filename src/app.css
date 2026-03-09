@@ -91,7 +91,6 @@
 		font-size: large;
 		font-weight: normal !important;
 	}
-	
 }
 
 @utility content {
@@ -107,28 +106,18 @@
 	@apply drop-shadow-[0px_0px_12px_#ff6600];
 }
 
-.clip-octagon {
-  clip-path: polygon(
-	30% 0%, 70% 0%,
-	100% 30%, 100% 70%,
-	70% 100%, 30% 100%,
-	0% 70%, 0% 30%
-  );
+@utility clip-octagon {
+	clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
 
-.clip-octagon-relative {
+@utility clip-octagon-relative {
 	aspect-ratio: 4;
-	clip-path: polygon(
-		7.5% 0%, 92.5% 0%,
-		100% 30%, 100% 70%,
-		92.5% 100%, 7.5% 100%,
-		0% 70%, 0% 30%
-  	);
+	clip-path: polygon(7.5% 0%, 92.5% 0%, 100% 30%, 100% 70%, 92.5% 100%, 7.5% 100%, 0% 70%, 0% 30%);
 }
 
 .carousel-indicator {
 	background-color: white;
-  	transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .carousel-indicator[data-current] {

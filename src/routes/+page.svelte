@@ -58,7 +58,7 @@
 	<hr class="hr" />
 
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.general_title()}</span></h2>
 			<p>{@html m.general_text()}</p>
 		</div>
@@ -71,7 +71,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<PictureCarousel pictures={pictures2} />
 
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.gadgets_title()}</span></h2>
 			<p>{@html m.gadgets_text()}</p>
 		</div>
@@ -80,7 +80,7 @@
 	<hr class="hr" />
 
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.settings_title()}</span></h2>
 			<p>{@html m.settings_text()}</p>
 		</div>
@@ -93,7 +93,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<PictureCarousel pictures={pictures1} />
 
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.arenas_title()}</span></h2>
 			<p>{@html m.arenas_text()}</p>
 		</div>
@@ -102,7 +102,7 @@
 	<hr class="hr" />
 
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.lore_title()}</span></h2>
 			<p>{@html m.lore_text()}</p>
 		</div>
@@ -115,7 +115,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<PictureCarousel pictures={pictures3} />
 
-		<div class="space-y-4 order-1 sm:order-1">
+		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.friendship_title()}</span></h2>
 			<p>{@html m.friendship_text()}</p>
 			<p><a href="/about" class="text-glowing hover:underline">{m.our_journey_link()}</a></p>
