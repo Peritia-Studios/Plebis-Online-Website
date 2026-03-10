@@ -13,6 +13,64 @@
 	let { children } = $props();
 
 	let real_route = $derived(deLocalizeHref(page.url.pathname));
+
+	const url = "https://plebis.online";
+
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "VideoGame",
+		name: "Plebis Online",
+		url: url,
+		description: m.short_description({ locale: "en" }),
+		genre: ["Action", "Shooter", "Casual"],
+		publisher: {
+			"@type": "Organization",
+			name: "Peritia Studios"
+		},
+		gamePlatform: ["Windows", "Linux", "Mac"],
+		playMode: "Multiplayer",
+		image: [
+			"https://plebis.online/gameplay/bunker_2.png",
+			"https://plebis.online/gameplay/bunker_3.png",
+			"https://plebis.online/gameplay/lounge.png",
+			"https://plebis.online/gameplay/subway_2.png"
+		],
+		// trailer: {
+		// 	"@type": "VideoObject",
+		// 	name: "Plebis Online Trailer",
+		// 	embedUrl: "https://www.youtube.com/embed/qTsaS1Tm-Ic"
+		// },
+		sameAs: [
+			links[0].url,
+			links[1].url,
+			links[2].url
+		]
+	};
+
+
+	// View transition
+	let currentTransition: ViewTransition | null = $state(null);
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			if (currentTransition && currentTransition.skipTransition) {
+				currentTransition.skipTransition();
+			}
+
+			currentTransition = document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+
+			currentTransition.ready.catch(() => {});
+
+			currentTransition.finished.finally(() => {
+				currentTransition = null;
+			});
+		});
+	});
 </script>
 
 <svelte:head>
