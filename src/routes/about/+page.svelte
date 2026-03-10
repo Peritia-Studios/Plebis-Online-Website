@@ -3,11 +3,17 @@
 </script>
 
 <svelte:head>
-	<title>{m.nav_about()} - Plebis Online</title>
-	<meta name="description" content={m.nav_about()} />
-	<!-- Open Graph -->
-	<meta property="og:title" content="{m.nav_about()} - Plebis Online" />
-	<meta property="og:description" content={m.nav_about()} />
+	<title>{m.nav_about({ locale: "en" })} - Plebis Online</title>
+
+	<meta name="description" content={m.nav_about({ locale: "en" })} />
+
+	<meta property="og:title" content={`${m.nav_about({ locale: "en" })} - Plebis Online`} />
+	<meta property="og:description" content={m.nav_about({ locale: "en" })} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://plebis.online/about" />
+	<meta property="og:image" content="https://plebis.online/social-preview.png" />
+
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="content">

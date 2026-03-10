@@ -12,7 +12,68 @@
 	let { children } = $props();
 
 	let real_route = $derived(deLocalizeHref(page.url.pathname));
+
+	const url = "https://plebis.online";
+
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "VideoGame",
+		name: "Plebis Online",
+		url: url,
+		description: m.short_description({ locale: "en" }),
+		genre: ["Action", "Shooter", "Casual"],
+		publisher: {
+			"@type": "Organization",
+			name: "Peritia Studios"
+		},
+		gamePlatform: ["Windows", "Linux", "Mac"],
+		playMode: "Multiplayer",
+		image: [
+			"https://plebis.online/gameplay/bunker_2.png",
+			"https://plebis.online/gameplay/bunker_3.png",
+			"https://plebis.online/gameplay/lounge.png",
+			"https://plebis.online/gameplay/subway_2.png"
+		],
+		// trailer: {
+		// 	"@type": "VideoObject",
+		// 	name: "Plebis Online Trailer",
+		// 	embedUrl: "https://www.youtube.com/embed/qTsaS1Tm-Ic"
+		// },
+		sameAs: [
+			links[0].url,
+			links[1].url,
+			links[2].url
+		]
+	};
+
 </script>
+
+<svelte:head>
+	<title>Plebis Online</title>
+	<link rel="icon" href="/favicon.webp" />
+
+	<meta name="description" content={m.short_description({ locale: "en" })} />
+
+	<link rel="canonical" href="https://plebis.online/" />
+
+	<!-- Open Graph (Discord / social previews) -->
+	<meta property="og:title" content="Plebis Online" />
+	<meta property="og:description" content={m.short_description({ locale: "en" })} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://plebis.online" />
+	<meta property="og:image" content="https://plebis.online/social-preview.png" />
+
+	<!-- Twitter preview -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Plebis Online" />
+	<meta name="twitter:description" content={m.short_description({ locale: "en" })} />
+	<meta name="twitter:image" content="https://plebis.online/social-preview.png" />
+
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+		{@html JSON.stringify(structuredData)}
+	</script>
+</svelte:head>
 
 <div class="flex min-h-screen flex-col">
 	<header

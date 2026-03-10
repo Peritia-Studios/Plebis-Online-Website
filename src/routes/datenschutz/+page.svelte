@@ -4,16 +4,16 @@
 
 <svelte:head>
 	<title>Datenschutzerklärung</title>
-	<meta
-		name="description"
-		content="Lesen Sie die Datenschutzerklärung von plebis.online, um zu erfahren, wie personenbezogene Daten verarbeitet werden, wie Local/Session Storage genutzt wird und wie die Seiten über GitHub Pages gehostet werden."
-	/>
-	<!-- Open Graph -->
+
+	<meta name="description" content="Lesen Sie die Datenschutzerklärung von plebis.online, um zu erfahren, wie personenbezogene Daten verarbeitet werden, wie Local/Session Storage genutzt wird und wie die Seiten über GitHub Pages gehostet werden." />
+
 	<meta property="og:title" content="Datenschutzerklärung" />
-	<meta
-		property="og:description"
-		content="Lesen Sie die Datenschutzerklärung von plebis.online, um zu erfahren, wie personenbezogene Daten verarbeitet werden, wie Local/Session Storage genutzt wird und wie die Seiten über GitHub Pages gehostet werden."
-	/>
+	<meta property="og:description" content="Lesen Sie die Datenschutzerklärung von plebis.online, um zu erfahren, wie personenbezogene Daten verarbeitet werden, wie Local/Session Storage genutzt wird und wie die Seiten über GitHub Pages gehostet werden." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://plebis.online/datenschutz" />
+	<meta property="og:image" content="https://plebis.online/social-preview.png" />
+
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="content">

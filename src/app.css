@@ -133,6 +133,7 @@
 
 .carousel-indicator[data-current] {
 	background-color: #ff6600;
-	transform: scale(1.15) rotate(22.5deg);
+	/* transform: scale(1.15) rotate(22.5deg); */
+	transform: scale(1.15);
 	transition: all 0.2s;
 }

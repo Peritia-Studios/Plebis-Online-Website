@@ -4,16 +4,16 @@
 
 <svelte:head>
 	<title>Privacy Policy</title>
-	<meta
-		name="description"
-		content="Read the privacy policy for plebis.online to learn how personal data is handled, local/session storage is used, and how the site is hosted on GitHub Pages."
-	/>
-	<!-- Open Graph -->
+
+	<meta name="description" content="Read the privacy policy for plebis.online to learn how personal data is handled, local/session storage is used, and how the site is hosted on GitHub Pages." />
+
 	<meta property="og:title" content="Privacy Policy" />
-	<meta
-		property="og:description"
-		content="Read the privacy policy for plebis.online to learn how personal data is handled, local/session storage is used, and how the site is hosted on GitHub Pages."
-	/>
+	<meta property="og:description" content="Read the privacy policy for plebis.online to learn how personal data is handled, local/session storage is used, and how the site is hosted on GitHub Pages." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://plebis.online/privacy-policy" />
+	<meta property="og:image" content="https://plebis.online/social-preview.png" />
+
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="content">
