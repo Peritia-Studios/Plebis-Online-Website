@@ -21,7 +21,7 @@
 		"@type": "VideoGame",
 		name: "Plebis Online",
 		url: url,
-		description: m.short_description({ locale: "en" }),
+		description: m.short_description_plain({ locale: "en" }),
 		genre: ["Action", "Shooter", "Casual"],
 		publisher: {
 			"@type": "Organization",
