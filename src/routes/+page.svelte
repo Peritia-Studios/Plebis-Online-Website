@@ -13,10 +13,10 @@
 
 <svelte:head>
 	<title>Plebis Online</title>
-	<meta name="description" content={m.short_description({ locale: "en" })} />
+	<meta name="description" content={m.short_description_plain({ locale: "en" })} />
 	<!-- Open Graph -->
 	<meta property="og:title" content="Plebis Online" />
-	<meta property="og:description" content={m.short_description({ locale: "en" })} />
+	<meta property="og:description" content={m.short_description_plain({ locale: "en" })} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://plebis.online/" />
 	<meta property="og:image" content="https://plebis.online/social-preview.png" />

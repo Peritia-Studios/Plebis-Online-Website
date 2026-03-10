@@ -77,13 +77,13 @@
 	<title>Plebis Online</title>
 	<link rel="icon" href="/favicon.webp" />
 
-	<meta name="description" content={m.short_description({ locale: "en" })} />
+	<meta name="description" content={m.short_description_plain({ locale: "en" })} />
 
 	<link rel="canonical" href="https://plebis.online/" />
 
 	<!-- Open Graph (Discord / social previews) -->
 	<meta property="og:title" content="Plebis Online" />
-	<meta property="og:description" content={m.short_description({ locale: "en" })} />
+	<meta property="og:description" content={m.short_description_plain({ locale: "en" })} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://plebis.online" />
 	<meta property="og:image" content="https://plebis.online/social-preview.png" />
@@ -91,7 +91,7 @@
 	<!-- Twitter preview -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Plebis Online" />
-	<meta name="twitter:description" content={m.short_description({ locale: "en" })} />
+	<meta name="twitter:description" content={m.short_description_plain({ locale: "en" })} />
 	<meta name="twitter:image" content="https://plebis.online/social-preview.png" />
 
 	<!-- Structured Data -->
