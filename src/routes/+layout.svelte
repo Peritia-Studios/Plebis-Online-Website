@@ -77,13 +77,13 @@
 	<title>Plebis Online</title>
 	<link rel="icon" href="/favicon.webp" />
 
-	<meta name="description" content={m.short_description_plain({ locale: "en" })} />
+	<!-- <meta name="description" content={m.short_description_plain({ locale: "en" })} /> -->
 
 	<link rel="canonical" href="https://plebis.online/" />
 
 	<!-- Open Graph (Discord / social previews) -->
-	<meta property="og:title" content="Plebis Online" />
-	<meta property="og:description" content={m.short_description_plain({ locale: "en" })} />
+	<!-- <meta property="og:title" content="Plebis Online" /> -->
+	<!-- <meta property="og:description" content={m.short_description_plain({ locale: "en" })} /> -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://plebis.online" />
 	<meta property="og:image" content="https://plebis.online/social-preview.png" />
@@ -95,9 +95,9 @@
 	<meta name="twitter:image" content="https://plebis.online/social-preview.png" />
 
 	<!-- Structured Data -->
-	<script type="application/ld+json">
-		{@html JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">
+		${JSON.stringify(structuredData)}
+	</script>`}
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
