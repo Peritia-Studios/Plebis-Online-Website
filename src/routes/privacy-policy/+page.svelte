@@ -1,5 +1,5 @@
 <script>
-	import { ArrowLeft, Languages } from 'lucide-svelte';
+	import { Languages } from 'lucide-svelte';
 </script>
 
 <svelte:head>
@@ -17,14 +17,17 @@
 </svelte:head>
 
 <div class="content">
-
-	<div class="mx-auto flex max-w-2xl space-y-6 pt-3 pb-0">
-		<a data-sveltekit-replacestate href="/datenschutz" class="btn preset-tonal">
+	<div class="mx-auto flex max-w-2xl pt-3 pb-0">
+		<a
+			data-sveltekit-replacestate
+			href="/datenschutz"
+			class="btn preset-tonal clip-octagon-relative text-surface-950-50 h-12 gap-3 rounded-none"
+		>
 			<Languages size={18} />
-			<span>Deutsche Version (Datenschutz)</span>
+			<span>Deutsche Version</span>
 		</a>
 	</div>
-    
+
 	<div class="mx-auto flex max-w-2xl flex-col space-y-6 pt-0 pb-4">
 		<div class="space-y-2">
 			<h3 class="h3">Privacy Policy</h3>
@@ -78,23 +81,4 @@
 
 		<p><small>Last updated: March 8, 2026</small></p>
 	</div>
-
-	<!-- Back button -->
-	<!-- <div >
-		<button
-			onclick={() => {
-				if (window?.history.length > 1) {
-					window?.history.back();
-				} else {
-					window.close();
-				}
-			}}
-			title="Return"
-			class="btn-icon preset-tonal"
-		>
-			<ArrowLeft />
-		</button>
-	</div> -->
-
-	<!-- Language Change -->
 </div>

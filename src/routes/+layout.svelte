@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
+	import { onNavigate } from '$app/navigation';
 	import { getLocale, localizeHref, deLocalizeHref, setLocale } from '$lib/paraglide/runtime.js';
 	import { m } from '$lib/paraglide/messages.js';
 	import MobileDrawer from './MobileDrawer.svelte';
@@ -12,40 +13,6 @@
 	let { children } = $props();
 
 	let real_route = $derived(deLocalizeHref(page.url.pathname));
-
-	const url = "https://plebis.online";
-
-	const structuredData = {
-		"@context": "https://schema.org",
-		"@type": "VideoGame",
-		name: "Plebis Online",
-		url: url,
-		description: m.short_description({ locale: "en" }),
-		genre: ["Action", "Shooter", "Casual"],
-		publisher: {
-			"@type": "Organization",
-			name: "Peritia Studios"
-		},
-		gamePlatform: ["Windows", "Linux", "Mac"],
-		playMode: "Multiplayer",
-		image: [
-			"https://plebis.online/gameplay/bunker_2.png",
-			"https://plebis.online/gameplay/bunker_3.png",
-			"https://plebis.online/gameplay/lounge.png",
-			"https://plebis.online/gameplay/subway_2.png"
-		],
-		// trailer: {
-		// 	"@type": "VideoObject",
-		// 	name: "Plebis Online Trailer",
-		// 	embedUrl: "https://www.youtube.com/embed/qTsaS1Tm-Ic"
-		// },
-		sameAs: [
-			links[0].url,
-			links[1].url,
-			links[2].url
-		]
-	};
-
 </script>
 
 <svelte:head>
@@ -157,7 +124,7 @@
 		</div>
 
 		<!-- Right: Social Links -->
-		<div class="flex items-center gap-4">
+		<div class="flex items-center">
 			{#each links as { name, icon: Icon, url }}
 				<a class="btn-icon" href={url} target="_blank" title={name}>
 					<Icon size="20" />
