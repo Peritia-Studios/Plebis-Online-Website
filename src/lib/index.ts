@@ -4,6 +4,8 @@ import Instagram from '$lib/components/icons/Instagram.svelte';
 import YouTube from '$lib/components/icons/YouTube.svelte';
 
 export const steam_game_id = '3619920';
+export const steam_store_page = 'https://store.steampowered.com/app/' + steam_game_id + '/';
+export const steam_store_page_chaos = 'https://store.steampowered.com/app/1230410/Chaos/';
 export const youtube_trailer_ID = false ? 'WtD2iNP__3k' : 'qx8hrhBZJ98';
 
 export interface Update {
@@ -45,3 +47,9 @@ export const links = [
 	// 	url: ''
 	// }
 ];
+
+export const socials_ole = "https://www.instagram.com/olumdergolum/";
+export const socials_erik = "";
+export const socials_nico = "https://www.instagram.com/nico.gbz_/";
+export const socials_hanno = "";
+export const socials_nils = "https://nwrenger.dev/";

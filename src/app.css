@@ -10,7 +10,14 @@
 
 @layer base {
 	:root {
-		--main-font: PlebisOnline, LatinMod;
+		--main-font: PlebisOnline;
+		
+		/* --gradient-colour-start: #ccfa01;
+		--gradient-colour-end: #ff1900; */
+		--gradient-colour-start: #ffd900;
+		--gradient-colour-end: #ff0000;
+		--primary-colour: #ff9100;
+		--primary-glow-colour: #ff9100;
 	}
 
 	html {
@@ -23,12 +30,12 @@
 		background-image:
 			radial-gradient(
 				at 0% 25%,
-				color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px,
+				color-mix(in oklab, var(--primary-colour) 10%, transparent) 0px,
 				transparent 30%
 			),
 			radial-gradient(
 				at 15% 6%,
-				color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px,
+				color-mix(in oklab, var(--primary-colour) 5%, transparent) 0px,
 				transparent 30%
 			);
 		background-position: center;
@@ -39,14 +46,7 @@
 
 	@font-face {
 		font-family: 'PlebisOnline';
-		src: url('/fonts/PlebisOnline.ttf') format('truetype');
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'LatinMod';
-		src: url('/fonts/LatinMod.ttf') format('truetype');
+		src: url('/fonts/PlebisOnline Font.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -98,31 +98,82 @@
 }
 
 @utility text-glowing {
-	text-shadow: 0px 0px 12px #ff6600;
-	@apply bg-linear-to-br from-[#ccfa01] from-35% to-[#ff1900] to-95% box-decoration-clone bg-clip-text text-transparent!;
+	text-shadow: 0px 0px 12px var(--primary-glow-colour);
+	@apply bg-linear-to-br from-[var(--gradient-colour-start)] from-35% to-[var(--gradient-colour-end)] to-95% box-decoration-clone bg-clip-text text-transparent!;
 }
 
 @utility logo-glowing {
-	@apply drop-shadow-[0px_0px_12px_#ff6600];
+	@apply drop-shadow-[0px_0px_12px_var(--primary-glow-colour)];
 }
 
 @utility clip-octagon {
 	clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
 
-@utility clip-octagon-relative {
+@utility clip-octagon-4-1 {
 	aspect-ratio: 4;
-	clip-path: polygon(7.5% 0%, 92.5% 0%, 100% 30%, 100% 70%, 92.5% 100%, 7.5% 100%, 0% 70%, 0% 30%);
+	--cut-x: 7.5%;
+	--cut-y: calc((var(--cut-x) * 4));
+	clip-path: polygon(var(--cut-x) 0%,
+			calc(100% - var(--cut-x)) 0%,
+			100% var(--cut-y),
+			100% calc(100% - var(--cut-y)),
+			calc(100% - var(--cut-x)) 100%,
+			var(--cut-x) 100%,
+			0% calc(100% - var(--cut-y)),
+			0% var(--cut-y));
+}
+
+@utility clip-octagon-16-9 {
+	aspect-ratio: 16/9;
+	--cut-x: 2.5%;
+	--cut-y: calc((var(--cut-x) * 16) / 9);
+	clip-path: polygon(var(--cut-x) 0%,
+			calc(100% - var(--cut-x)) 0%,
+			100% var(--cut-y),
+			100% calc(100% - var(--cut-y)),
+			calc(100% - var(--cut-x)) 100%,
+			var(--cut-x) 100%,
+			0% calc(100% - var(--cut-y)),
+			0% var(--cut-y));
+}
+
+.carousel-trigger {
+	z-index: 1;
+}
+
+.fill-primary-colour {
+	background-color: var(--primary-colour);
 }
 
 .carousel-indicator {
-	background-color: white;
+	background-color: transparent;
 	transition: all 0.2s;
+
+	/* background-image: url('/sprites/octagon256.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;background-image: url('/sprites/octagon256.png'); */
 }
 
 .carousel-indicator[data-current] {
-	background-color: #ff6600;
+	/* background-color: #ff6600; */
 	/* transform: scale(1.15) rotate(22.5deg); */
 	transform: scale(1.15);
 	transition: all 0.2s;
+
+	/* @apply drop-shadow-[0px_0px_12px_#ff6600]; */
+}
+
+.octagon-indicator {
+	/* width: 16px;
+	height: 16px; */
+	fill: white;
+	stroke: none;
+}
+
+.carousel-indicator[data-current] .octagon-indicator {
+	fill: var(--primary-colour);
+	stroke: none;
+	filter: drop-shadow(0 0 6px var(--primary-glow-colour));
 }

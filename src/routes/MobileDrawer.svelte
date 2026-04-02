@@ -6,6 +6,7 @@
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import { Menu, X } from 'lucide-svelte';
 	import { flyside, opacity } from '$lib/animations';
+	import { steam_store_page } from '$lib';
 
 	let drawerState = $state(false);
 
@@ -37,24 +38,31 @@
 							href={localizeHref('/')}
 							class="hover:underline {deLocalizeHref(page.url.pathname) === '/' ||
 							deLocalizeHref(page.url.pathname) === ''
-								? ''
-								: 'opacity-60'}"
+								? 'text-glowing'
+								: ''}"
 							onclick={drawerClose}
 							title={m.nav_home()}>{m.nav_home()}</a
 						>
 						<a
+							href={steam_store_page}
+							target="_blank"
+							class="hover:underline"
+							onclick={drawerClose}
+							title={m.nav_steam()}>{m.nav_steam()}</a
+						>
+						<a
 							href={localizeHref('/updates')}
 							class="hover:underline {deLocalizeHref(page.url.pathname) === '/updates'
-								? ''
-								: 'opacity-60'}"
+								? 'text-glowing'
+								: ''}"
 							onclick={drawerClose}
 							title={m.nav_updates()}>{m.nav_updates()}</a
 						>
 						<a
 							href={localizeHref('/about')}
 							class="hover:underline {deLocalizeHref(page.url.pathname) === '/about'
-								? ''
-								: 'opacity-60'}"
+								? 'text-glowing'
+								: ''}"
 							onclick={drawerClose}
 							title={m.nav_about()}>{m.nav_about()}</a
 						>

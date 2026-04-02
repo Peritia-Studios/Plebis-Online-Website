@@ -3,6 +3,7 @@
 	import { steam_game_id } from '$lib';
 	import { youtube_trailer_ID } from '$lib';
 	import { m } from '$lib/paraglide/messages';
+	import { hightlightGameTitle } from '$lib/textutils';
 	import Banner from './Banner.svelte';
 	import PictureCarousel from './PictureCarousel.svelte';
 
@@ -36,7 +37,7 @@
 			></iframe> -->
 		<a
 			href="steam://run/{steam_game_id}/"
-			class="btn preset-filled-primary-500 clip-octagon-relative gap-3 rounded-none"
+			class="btn fill-primary-colour clip-octagon-4-1 gap-3 rounded-none"
 		>
 			<Download />
 			{m.actions_install()}
@@ -45,11 +46,11 @@
 {/snippet}
 
 <div class="content">
-	<h3 class="h3 text-center">{@html m.short_description()}</h3>
+	<h3 class="h3 text-center">{@html hightlightGameTitle(m.short_description())}</h3>
 
 	{@render ShopReference()}
 
-	<div class="relative h-0 w-full pb-[56.25%]">
+	<div class="relative h-0 w-full pb-[56.25%] clip-octagon-16-9">
 		<iframe
 			class="absolute top-0 left-0 h-full w-full"
 			src="https://www.youtube.com/embed/{youtube_trailer_ID}?modestbranding=1&autoplay=1&rel=0&controls=0&loop=1&origin=http://plebis.online"
@@ -65,7 +66,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.general_title()}</span></h2>
-			<p>{@html m.general_text()}</p>
+			<p>{@html hightlightGameTitle(m.general_text())}</p>
 		</div>
 
 		<PictureCarousel pictures={pictures1} />
@@ -78,7 +79,7 @@
 
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.gadgets_title()}</span></h2>
-			<p>{@html m.gadgets_text()}</p>
+			<p>{@html hightlightGameTitle(m.gadgets_text())}</p>
 		</div>
 	</div>
 
@@ -87,7 +88,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.settings_title()}</span></h2>
-			<p>{@html m.settings_text()}</p>
+			<p>{@html hightlightGameTitle(m.settings_text())}</p>
 		</div>
 
 		<PictureCarousel pictures={pictures3} />
@@ -100,7 +101,7 @@
 
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.arenas_title()}</span></h2>
-			<p>{@html m.arenas_text()}</p>
+			<p>{@html hightlightGameTitle(m.arenas_text())}</p>
 		</div>
 	</div>
 
@@ -109,7 +110,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.lore_title()}</span></h2>
-			<p>{@html m.lore_text()}</p>
+			<p>{@html hightlightGameTitle(m.lore_text())}</p>
 		</div>
 
 		<PictureCarousel pictures={pictures2} />
@@ -122,8 +123,8 @@
 
 		<div class="order-1 space-y-4 sm:order-1">
 			<h2 class="h2"><span class="text-glowing">{m.friendship_title()}</span></h2>
-			<p>{@html m.friendship_text()}</p>
-			<p><a href="/about" class="text-glowing hover:underline">{m.our_journey_link()}</a></p>
+			<p>{@html hightlightGameTitle(m.friendship_text())}</p>
+			<p><a href="/about" class="hover:underline md:flex text-glowing">{m.our_journey_link()}</a></p>
 		</div>
 	</div>
 

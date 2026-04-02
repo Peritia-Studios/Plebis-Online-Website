@@ -9,6 +9,7 @@
 	import { links } from '$lib';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	import { Earth, Languages } from 'lucide-svelte';
+	import { steam_store_page } from '$lib';
 
 	let { children } = $props();
 
@@ -46,7 +47,6 @@
 			links[2].url
 		]
 	};
-
 
 	// View transition
 	let currentTransition: ViewTransition | null = $state(null);
@@ -114,20 +114,26 @@
 				>
 					<PlebisOnline
 						size={42}
-						class={real_route === '/' || real_route === '' ? 'logo-glowing' : 'opacity-100'}
+						class={real_route === '/' || real_route === '' ? 'logo-glowing' : ''}
 					/>
 				</a>
 				<a
+					class="hidden hover:underline md:flex"
+					href={steam_store_page}
+					target="_blank"
+					title={m.nav_steam()}>{m.nav_steam()}</a
+				>
+				<a
 					class="hidden hover:underline md:flex {deLocalizeHref(page.url.pathname) === '/updates'
-						? ''
-						: 'opacity-60'}"
+						? 'text-glowing'
+						: ''}"
 					href={localizeHref('/updates')}
 					title={m.nav_updates()}>{m.nav_updates()}</a
 				>
 				<a
 					class="hidden hover:underline md:flex {deLocalizeHref(page.url.pathname) === '/about'
-						? ''
-						: 'opacity-60'}"
+						? 'text-glowing'
+						: ''}"
 					href={localizeHref('/about')}
 					title={m.nav_about()}>{m.nav_about()}</a
 				>
@@ -147,7 +153,7 @@
 						setLocale(next);
 					}}
 				>
-					<Switch.Control>
+					<Switch.Control class="data-[state=checked]:fill-primary-colour">
 						<Switch.Thumb>
 							<Switch.Context>
 								{#snippet children(switch_)}
@@ -175,14 +181,14 @@
 		class="border-surface-500/20 bg-surface-50/90 dark:bg-surface-950/90 flex w-full flex-col items-center justify-between gap-4 border-t px-4 py-6 md:flex-row md:px-10"
 	>
 		<!-- Left: Privacy Policy -->
-		<div class="text-sm opacity-70">
+		<div class="text-sm opacity-70 order-2 md:order-1">
 			<a href={localizeHref('/privacy-policy')} class="hover:underline">
 				{m.privacy_policy ? m.privacy_policy() : 'Privacy Policy'}
 			</a>
 		</div>
 
 		<!-- Right: Social Links -->
-		<div class="flex items-center">
+		<div class="flex items-center order-1 md:order-2">
 			{#each links as { name, icon: Icon, url }}
 				<a class="btn-icon" href={url} target="_blank" title={name}>
 					<Icon size="20" />
