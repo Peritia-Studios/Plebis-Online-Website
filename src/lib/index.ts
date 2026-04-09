@@ -13,15 +13,30 @@ export interface Update {
 	date: DateTime;
 	version: string;
 	description: string;
+	isMajor: boolean;
 }
 
 export const updates: Update[] = [
 	{
-		title: 'Alphas',
-		date: DateTime.fromISO('2024-02-10'),
-		version: 'alphas',
-		description: 'Playtester only builds! No major public releases until this point.'
-	}
+		title: 'Beta Playtests',
+		date: DateTime.fromISO('2021-01-21'),
+		version: 'Beta',
+		description: 'Playtester only builds! No public releases.',
+		isMajor: false
+	},
+	// {
+	// 	title: 'Release',
+	// 	date: DateTime.fromISO('2026-08-10'),
+	// 	version: '1.0.0',
+	// 	description: 'The time of Plebis Online has begun!',
+	// 	isMajor: true
+	// },
+];
+
+export const future_features: string[] = [
+	"Comprehensive Map-Editor",
+	"Modding Support",
+	"Singleplayer Campaign",
 ];
 
 export const links = [

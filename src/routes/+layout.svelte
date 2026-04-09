@@ -153,7 +153,7 @@
 						setLocale(next);
 					}}
 				>
-					<Switch.Control class="data-[state=checked]:fill-primary-colour">
+					<Switch.Control class="switch">
 						<Switch.Thumb>
 							<Switch.Context>
 								{#snippet children(switch_)}

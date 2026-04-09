@@ -17,6 +17,7 @@
 		--gradient-colour-start: #ffd900;
 		--gradient-colour-end: #ff0000;
 		--primary-colour: #ff9100;
+		--primary-colour-rgb: calc(16 * 16 + 16 * 1) calc(9 * 16 + 1 * 1) calc(0 * 16 + 0 * 1);
 		--primary-glow-colour: #ff9100;
 	}
 
@@ -146,6 +147,11 @@
 	background-color: var(--primary-colour);
 }
 
+.switch[data-state="checked"] {
+	background-color: var(--primary-colour);
+	filter: drop-shadow(0 0 12px var(--primary-glow-colour));
+}
+
 .carousel-indicator {
 	background-color: transparent;
 	transition: all 0.2s;
@@ -176,4 +182,23 @@
 	fill: var(--primary-colour);
 	stroke: none;
 	filter: drop-shadow(0 0 6px var(--primary-glow-colour));
+}
+
+.custom-list {
+	list-style: none;
+	padding: 0;
+}
+
+.custom-list li {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.bullet-point {
+	width: 5px;
+	height: 5px;
+	transform: rotate(22.5deg);
+	fill: white;
+	/* filter: drop-shadow(0 0 6px var(--primary-glow-colour)); */
 }
