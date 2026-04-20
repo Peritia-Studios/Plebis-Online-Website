@@ -6,6 +6,7 @@
 	import { hightlightGameTitle } from '$lib/textutils';
 	import Banner from './Banner.svelte';
 	import PictureCarousel from './PictureCarousel.svelte';
+	import Trailer from './Trailer.svelte';
 
 	const pictures1 = ['lounge.png', 'bunker_2.png', 'bunker_5.png'];
 	const pictures2 = ['shooting_range.png', 'bunker_3.png', 'subway_1.png'];
@@ -50,7 +51,7 @@
 
 	{@render ShopReference()}
 
-	<div class="relative h-0 w-full pb-[56.25%] clip-octagon-16-9">
+	<!-- <div class="relative h-0 w-full pb-[56.25%] clip-octagon-16-9">
 		<iframe
 			class="absolute top-0 left-0 h-full w-full"
 			src="https://www.youtube.com/embed/{youtube_trailer_ID}?modestbranding=1&autoplay=1&rel=0&controls=0&loop=1&origin=http://plebis.online"
@@ -59,7 +60,8 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowfullscreen
 		></iframe>
-	</div>
+	</div> -->
+	<Trailer />
 
 	<hr class="hr" />
 

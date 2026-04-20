@@ -35,6 +35,7 @@ export const updates: Update[] = [
 
 export const future_features: string[] = [
 	"Comprehensive Map-Editor",
+	"Built-in custom Game Mode Graph",
 	"Modding Support",
 	"Singleplayer Campaign",
 ];
